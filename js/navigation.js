@@ -4,17 +4,33 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+
+
 ( function($) {
-	$('.viewmore').click( function(){
-		alert(":D");
+	
+	$('.menu-toggle').click( function(){
+		$(this).toggleClass('open');
+		$('#menu-mobile').toggleClass('open')
 	})
-	// var splide = new Splide( '.splide', {
-	// 	type   : 'loop',
-	// 	perPage: 3,
-	// 	focus  : 'center',
-	// } );
-	  
-	// splide.mount();
+
+	// const width = $(window).width();
+	// if( width < 650 ){
+		const li = $('#menu-footer').children();
+		$(li).each((item, o)=>{
+			const html = $(o).html();
+			$(o).html('');
+			$(o).append('<img src="https://capside.mx/wp-content/themes/capside/image/gota-fill.svg" width="8"> '+html);
+		})		
+	// }
+	const _item = $('.item')
+	$(_item).each((item, o)=>{
+		const lis = $(o).find('ul').children();
+		$(lis).each((_item, _o)=>{
+			const html = $(_o).html();
+			$(_o).html('');
+			$(_o).append('<img src="https://capside.mx/wp-content/themes/capside/image/gota-fill.svg" width="8"> '+html);
+		})
+	});
 	// const siteNavigation = document.getElementById( 'site-navigation' );
 
 	// // Return early if the navigation doesn't exist.
@@ -80,8 +96,7 @@
 	// }
 
 	// /**
-	//  * Sets or removes .focus class on an element.
-	//  */
+
 	// function toggleFocus() {
 	// 	if ( event.type === 'focus' || event.type === 'blur' ) {
 	// 		let self = this;
@@ -106,4 +121,46 @@
 	// 		menuItem.classList.toggle( 'focus' );
 	// 	}
 	// }
-}(jQuery) );
+
+	$('#menu-mobile').on('click','ul li a', function( event ) {
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+			// Prevent default anchor click behavior
+			event.preventDefault();
+	  
+			// Store hash
+			var hash = this.hash.replace('#','');
+			const section = document.getElementById(hash)
+			// Using jQuery's animate() method to add smooth page scroll
+			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+			$('html, body').animate({
+			  scrollTop: ( section.offsetTop - 70 )
+			}, 800, function(){
+	  
+			  // Add hash (#) to URL when done scrolling (default click behavior)
+			//   window.location.hash = hash;
+			});
+		} // End if
+		$('.menu-toggle').trigger('click');
+	})
+	$('#masthead').on('click','ul li a', function( event ) {
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+			// Prevent default anchor click behavior
+			event.preventDefault();
+	  
+			// Store hash
+			var hash = this.hash.replace('#','');
+			const section = document.getElementById(hash)
+			// Using jQuery's animate() method to add smooth page scroll
+			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+			$('html, body').animate({
+			  scrollTop: ( section.offsetTop - 70 )
+			}, 800, function(){
+	  
+			  // Add hash (#) to URL when done scrolling (default click behavior)
+			//   window.location.hash = hash;
+			});
+		} // End if
+	})
+})(jQuery);

@@ -9,48 +9,67 @@
 	$servicios = new WP_Query( $args2 ); 
 ?>
 <section id="inicio" style="background-image:url(<?=imgUrl($post->ID)?>)">
-
+	<img src="https://capside.mx/wp-content/uploads/2023/05/back-mobile.png" class="imagenmobile" loading="eager">
+	<div class="content">
+		<div  data-aos="fade-up">
+		<?=apply_filters('the_content',$post->post_content)?></div>
+	</div>
+	
 </section>
 <section id="quienes-somos">
-<?php require get_template_directory() . '/image/psi.svg'; ?>
-	<div class="container py-5">
-		<div class="row pt-5">
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6">
-				<?=apply_filters('content', $metas['quienes_somos'][0])?>
+	<?php require get_template_directory() . '/image/psi.svg'; ?>
+	<div class="container py-3">
+		<div class="row pt-5 align-items-center">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-5 title-about">
+				<div>
+					<?=apply_filters('the_content', $metas['quienes_somos'][0])?>
+				</div>
 			</div>
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6">
-				<img src="<?=wp_get_attachment_url( $metas['imagen_about'][0] )?>" class="img-fluid"/>
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid pb-5">
-		<div class="row py-5">
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end px-0">
-				<img src="<?=wp_get_attachment_url( $metas['imagen_2'][0] )?>" class="img-fluid"/>
-			</div>
-			<div class="col-6 col-sm-6 col-md-6 col-lg-6 blue d-flex align-items-center justify-content-center">
-				<div class="col-12 col-sm-11 col-md-10 col-lg-10">
-					<?=apply_filters('content', $metas['contenido_2'][0])?>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-7">
+				<div>
+					<img src="<?=wp_get_attachment_url( $metas['imagen_about'][0] )?>" class="img-fluid"/>
 				</div>
 			</div>
 		</div>
 	</div>
-	</section>
+	<div class="container-fluid pb-3">
+		<div class="row py-5">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-6 d-flex justify-content-end px-0 uno">
+				<img src="<?=wp_get_attachment_url( $metas['imagen_2'][0] )?>" class="img-fluid"/>
+			</div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-6 blue d-flex align-items-center justify-content-center dos">
+				<div class="col-12 col-sm-11 col-md-10 col-lg-10">
+					<div>
+					<?=apply_filters('the_content', $metas['contenido_2'][0])?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section id="equipo" class="py-5">
-	<div class="container py-5">
+	<?php require get_template_directory() . '/image/capsides2.svg'; ?>
+	<div class="container pt-2">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 text-center relative" style="">
+				<img src="https://capside.mx/wp-content/uploads/2023/05/title-team.png" alt="Capside" class="title-team">
+				<hr>
+			</div>
+		</div>
+	</div>
+	<div class="wrap-splide">
 				<div class="splide" aria-label="Splide Basic HTML Example">
 					<div class="splide__track">
 						<ul class="splide__list">
 							<?php foreach ($equipo->posts as $o):?>
 								<div class="splide__slide">
 									<div class="item">
-										<img src="<?=imgUrl($o->ID)?>" alt="">
-										<div class="p-2">
+										<img src="<?=imgUrl($o->ID)?>" alt="<?=$o->post_title?>">
+										<div class="cp-2">
 											<h5 class="text-center"><?=$o->post_title?></h5>
 											<hr>
-											<?=apply_filters('content', $o->post_content);?>
+											<?=apply_filters('the_content', $o->post_content);?>
 										</div>
 									</div>
 								</div>
@@ -58,27 +77,27 @@
 						</ul>
 					</div>
 				</div>
-			</div>
-		</div>
 	</div>
 </section>
 <section id="servicios">
-	<div class="container py-5">
-		<div class="row">
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3 img">
-				<?=apply_filters('content', $metas['titulo'][0])?>
+	<?php require get_template_directory() . '/image/hojas.svg'; ?>
+	<?php require get_template_directory() . '/image/psi-brown.svg'; ?>
+	<div class="container py-5 relative">
+		<div class="row" style="position:relative;z-index:1">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-4 img">
+				<?=apply_filters('the_content', $metas['titulo'][0])?>
 			</div>
-			<div class="col-12 col-sm-6 col-md-8 col-lg-9 px-4">
-				<?=apply_filters('content', $metas['contenidoqo'][0])?>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-8 px-4">
+				<?=apply_filters('the_content', $metas['contenidoqo'][0])?>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container mb-5">
 		<div class="row justify-content-center">
 			<?php foreach ($servicios->posts as $o):?>
-				<div class="col-4 col-sm-6 col-lg-4 col-lg-3">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 py-2">
 					<div class="service">
-						<img src="<?=imgUrl($o->ID)?>" alt="">
+						<img src="<?=imgUrl($o->ID)?>" alt="<?=$o->post_title?>" loading="lazy">
 						<h5 class="text-center"><?=$o->post_title?></h5>
 						<button class="viewmore">VER MÁS</button>
 						<div class="contentItem" hidden>
@@ -115,24 +134,39 @@
 								</svg>
 								<img src="<?=imgUrl($o->ID)?>" class="img-fluid">
 							</div>
-							<?=apply_filters('content', $o->post_content);?>
+							
+							<?php 
+								$img = get_post_meta($o->ID, 'servicio_imagen', true); 
+								$img = wp_get_attachment_url($img);
+							?>
+							<img src="<?=$img?>" class="rightImage" loading="lazy">
+							<?=apply_filters('the_content', $o->post_content);?>
 						</div>
 					</div>
 				</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="container-fluid mt-4 pt-4">
-		<div class="row d-flex align-items-center text-center">
-			<div class="col-12 col-sm-12 col-md-3 col-lg-3 px-0">
+	<div class="container-fluid mt-5 pt-5 bottomServicios">
+		<div class="row d-flex align-items-center text-center pt-5">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-3 px-0">
 				<div class="green">
 					<h2>MODALIDAD<br>PRESENCIAL</h2>
 				</div>
 			</div>
-			<div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
-				<img src="<?=get_template_directory_uri()?>/image/middle.png" class="img-fluid">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-6 px-0">
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
+						<img src="<?=site_url()?>/wp-content/uploads/2023/05/capside.png" class="img-fluid full-width quadro-img">
+					</div>
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
+						<div class="quadro-1">
+							<img src="<?=site_url()?>/wp-content/uploads/2023/05/logo-cam.png" class="img-fluid full-width">
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-12 col-sm-12 col-md-3 col-lg-3 px-0">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-3 px-0">
 				<div class="green">
 					<h2>MODALIDAD<br>EN LÍNEA</h2>
 				</div>
@@ -141,17 +175,49 @@
 	</div>
 </section>
 <section id="contacto">
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11177.390347477436!2d-89.61086255302355!3d20.964602831174222!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56711251fa1b45%3A0xbb80e9e83bca46d7!2sCAPSI!5e0!3m2!1ses!2smx!4v1683700290805!5m2!1ses!2smx" style="width:100%;" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	<div class="container py-5 show-mobile">
+		<div class="row">
+			<div class="col-12">
+					<img src="https://capside.mx/wp-content/uploads/2023/05/title-contact.png" class="title-contact">
+				<hr>
+			</div>
+		</div>
+	</div>
+	<div class="card-horario p-4">
+		<h3>Horarios</h3>
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+				<strong>Lunes a Viernes</strong>
+				9:00 a.m.- 9:00 p.m. 
+			</div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+				<strong>Sábado</strong>
+				9:00 a.m.- 2:00 p.m.
+			</div>
+			<div class="col-12">
+			<?php wp_nav_menu(['menu'=>'Contacto','container'=>'ul','menu_class'=>'nav flex-column']) ?>
+			</div>
+		</div>
+	</div>
+	<div class="container py-5 hidden-mobile">
+		<div class="row">
+			<div class="col-12">
+					<img src="https://capside.mx/wp-content/uploads/2023/05/title-contact.png" class="title-contact">
+				<hr>
+			</div>
+		</div>
+	</div>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4649.318239399425!2d-89.62017125454835!3d21.015558478872478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5677475fd2681f%3A0x415976a048d306f!2sC.%2052%20245%2C%20Plan%20de%20Ayala%2C%2097118%20M%C3%A9rida%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1685049812075!5m2!1ses-419!2smx" style="width:100%;" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 <div id="myModal" class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content  px-4">
 		<svg width="58" height="58" viewBox="0 0 58 58" fill="none" class="close" data-bs-dismiss="modal" xmlns="http://www.w3.org/2000/svg">
 			<circle cx="29" cy="29" r="29" fill="#00B6D6"/>
 			<path d="M17 17L42 42" stroke="white" stroke-width="5" stroke-linejoin="round"/>
 			<path d="M42 17L17 42" stroke="white" stroke-width="5" stroke-linejoin="round"/>
 		</svg>
-      <div class="modal-body text-center">
+      <div class="modal-body text-center px-4">
         <p>Modal body text goes here.</p>
       </div>
     </div>

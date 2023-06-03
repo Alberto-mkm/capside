@@ -1,2 +1,5 @@
 __*
 *.css
+*.map
+.vscode
+.DS_Store
