@@ -475,7 +475,7 @@ section{
         box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         height: 275px;
-        padding: 0px 20px;
+        padding: 0px 30px;
         margin: 20px 0px;
         position: relative;
         h5{
@@ -508,6 +508,7 @@ section{
         }
         @media(max-width:768px){
             height: 250px;
+            padding: 0px 20px;
             h3{
                 font-size: 14px;
                 line-height: 18px;
@@ -895,6 +896,9 @@ footer{
     display: none;
     }
 @media(max-width:640px){
+    .mobile-center{
+        text-align: center;
+    }
     .hidden-mobile{
         display: none;
     }

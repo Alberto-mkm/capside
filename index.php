@@ -9,7 +9,7 @@
 	$servicios = new WP_Query( $args2 ); 
 ?>
 <section id="inicio" style="background-image:url(<?=imgUrl($post->ID)?>)">
-	<img src="https://capside.mx/wp-content/uploads/2023/05/back-mobile.png" class="imagenmobile" loading="eager">
+	<img src="https://capside.mx/wp-content/uploads/2023/06/back-mobile.jpg" class="imagenmobile" loading="eager">
 	<div class="content">
 		<div  data-aos="fade-up">
 		<?=apply_filters('the_content',$post->post_content)?></div>
@@ -87,7 +87,7 @@
 			<div class="col-12 col-sm-12 col-md-12 col-lg-4 img">
 				<?=apply_filters('the_content', $metas['titulo'][0])?>
 			</div>
-			<div class="col-12 col-sm-12 col-md-12 col-lg-8 px-4">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-8 px-4 mobile-center">
 				<?=apply_filters('the_content', $metas['contenidoqo'][0])?>
 			</div>
 		</div>
@@ -157,7 +157,7 @@
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 px-0">
 				<div class="row">
 					<div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
-						<img src="<?=site_url()?>/wp-content/uploads/2023/05/capside.png" class="img-fluid full-width quadro-img">
+						<img src="<?=site_url()?>/wp-content/uploads/2023/06/capside.jpeg" class="img-fluid full-width quadro-img">
 					</div>
 					<div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
 						<div class="quadro-1">
